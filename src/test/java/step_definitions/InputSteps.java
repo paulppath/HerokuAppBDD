@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import pages.InputPage;
 import utils.BrowserUtil;
 
@@ -32,6 +33,27 @@ public class InputSteps
             case ("aaaaabbbbbcccccdddddeeeeefffffggggghhhhhiiiiijjjjjkkkkklllllmmmmmnnnnnooooopppppqqqqqrrrrrssssstttttuuuuuvvvvvwwwwwxxxxxyyyyyzzzzz"):
                 BrowserUtil.sendKeys(page.messageInputBox, messages);
                 break;
+            case("3"):
+                BrowserUtil.sendKeys(page.inputA, messages);
+                break;
+            case("4"):
+                BrowserUtil.sendKeys(page.inputB, messages);
+                break;
+            case("f"):
+                BrowserUtil.sendKeys(page.inputA, messages);
+                break;
+            case("5"):
+                BrowserUtil.sendKeys(page.inputA, messages);
+                break;
+            case("k"):
+                BrowserUtil.sendKeys(page.inputB, messages);
+                break;
+            case("5f"):
+                BrowserUtil.sendKeys(page.inputA, messages);
+                break;
+            case("8k"):
+                BrowserUtil.sendKeys(page.inputB, messages);
+                break;
             default:
                 Assert.fail("Invalid message!");
         }
@@ -43,6 +65,9 @@ public class InputSteps
         {
             case("show message"):
                 BrowserUtil.click(page.showMessageBtn);
+                break;
+            case("get total"):
+                BrowserUtil.click(page.getTotalBtn);
                 break;
             default:
                 Assert.fail("Invalid button!");
@@ -56,8 +81,27 @@ public class InputSteps
             case("aaaaabbbbbcccccdddddeeeeefffffggggghhhhhiiiiijjjjjkkkkklllllmmmmmnnnnnooooopppppqqqqqrrrrrssssstttttuuuuuvvvvvwwwwwxxxxxyyyyyzzzzz"):
                 BrowserUtil.assertEquals(page.messageOutput.getText(), texts);
                 break;
+            case("7"):
+                BrowserUtil.assertEquals(page.total.getText(), texts);
+                break;
             default:
                 Assert.fail("Invalid texts!");
         }
+    }
+//    @When("click {string} button with invalid input")
+//    public void click_button_with_invalid_input(String buttons) {
+//        switch(buttons.toLowerCase())
+//        {
+//            case("get total"):
+//                BrowserUtil.click(page.getTotalBtn);
+//
+//        }
+//    }
+    @Then("Verify alert displayed with text {string}")
+    public void verify_alert_displayed_with_text(String expectedAlertText) {
+        Alert alert = BrowserUtil.getDriver().switchTo().alert();
+        String actualAlertText = alert.getText();
+        System.out.println(actualAlertText);
+        BrowserUtil.assertEquals(actualAlertText, expectedAlertText);
     }
 }
