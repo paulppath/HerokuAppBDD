@@ -20,5 +20,9 @@ public class HomePage
 
     @FindBy(xpath="//a[starts-with(@href,\"http\")]")
     public List<WebElement> links;
+    @FindBy(xpath="//a[text()='Inputs']")
+    public WebElement inputPageNavBtn;
+    @FindBy(xpath="//nav/a[text()='Calendar']")
+    public WebElement calendarNavBtn;
 
 }

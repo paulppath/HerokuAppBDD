@@ -11,8 +11,7 @@ public class InputPage
         PageFactory.initElements(BrowserUtil.getDriver(),this);
     }
 
-    @FindBy(xpath="//a[text()='Inputs']")
-    public WebElement inputPageNavBtn;
+
     @FindBy(xpath="//input[@id='message']")
     public WebElement messageInputBox;
     @FindBy(xpath="//button[@name='button1']")

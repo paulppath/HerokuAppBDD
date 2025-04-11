@@ -22,9 +22,9 @@ import org.junit.runner.RunWith;
         // stepNotifications -> shows steps in the box on the side. It is false by default.
         stepNotifications = true,
         // dryRun gives you option to look for undefined step definition that been written in feature file
-        dryRun = false
+        dryRun = true
         // tags -> run by tag (you can combine by using "and, or, and not"
-        ,tags = "@US0103"
+        ,tags = "@US0201"
 //        ,tags = "@smoke and @US001"
 )
 public class CukesRunner {

@@ -5,14 +5,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import pages.HomePage;
 import pages.InputPage;
 import utils.BrowserUtil;
 
 public class InputSteps
 {
     InputPage page;
+    HomePage homePage;
     public InputSteps(){
+
         page = new InputPage();
+        homePage = new HomePage();
     }
 
     @Given("I open {string} page")
@@ -21,7 +25,10 @@ public class InputSteps
         switch(pages.toLowerCase())
         {
             case("input"):
-                BrowserUtil.click(page.inputPageNavBtn);
+                BrowserUtil.click(homePage.inputPageNavBtn);
+                break;
+            case("calendar"):
+                BrowserUtil.click(homePage.calendarNavBtn);
                 break;
             default:
                 Assert.fail("Invalid navigation button");
