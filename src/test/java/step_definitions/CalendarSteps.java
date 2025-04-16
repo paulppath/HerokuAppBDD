@@ -1,6 +1,7 @@
 package step_definitions;
 
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.CalendarPage;
 import utils.BrowserUtil;
@@ -31,6 +32,16 @@ public class CalendarSteps
                 Assert.fail("Invalid input!");
         }
 
+    }
+    @When("user click date {string} in the calendar")
+    public void user_click_date_in_the_calendar(String date) {
+        switch (date.toLowerCase())
+        {
+            case "19":
+
+            default:
+                Assert.fail("Invalid date!");
+        }
     }
     public static String refineDate(String date)
     {

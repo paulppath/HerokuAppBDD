@@ -24,7 +24,7 @@ import org.junit.runner.RunWith;
         // dryRun gives you option to look for undefined step definition that been written in feature file
         dryRun = true
         // tags -> run by tag (you can combine by using "and, or, and not"
-        ,tags = "@US0201"
+        ,tags = "@US0202"
 //        ,tags = "@smoke and @US001"
 )
 public class CukesRunner {
