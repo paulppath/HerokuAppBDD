@@ -14,5 +14,7 @@ public class CalendarPage
 
     @FindBy(xpath="//div/h1")
     public WebElement dateDisplayed;
+    @FindBy(xpath="//button/abbr[contains(@aria-label,\"19\")]")
+    public WebElement date19;
 
 }

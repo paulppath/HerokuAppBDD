@@ -18,15 +18,20 @@ public class CalendarSteps
 
     @Then("Verify that the date is displayed as {string} date")
     public void verify_that_the_date_is_displayed_as_date(String date) {
+        String actualDate = "";
         switch(date.toLowerCase())
         {
             case ("today"):
                 String today = todayDate();
                 System.out.println(today);
-                String actualDate = page.dateDisplayed.getText();
+                actualDate = page.dateDisplayed.getText();
                 actualDate = refineDate(actualDate);
                 System.out.println(actualDate);
                 BrowserUtil.assertEquals(actualDate, today);
+                break;
+            case ("4/19/2025"):
+                actualDate = page.dateDisplayed.getText();
+                BrowserUtil.assertEquals(actualDate, date);
                 break;
             default:
                 Assert.fail("Invalid input!");
@@ -38,7 +43,8 @@ public class CalendarSteps
         switch (date.toLowerCase())
         {
             case "19":
-
+                BrowserUtil.click(page.date19);
+                break;
             default:
                 Assert.fail("Invalid date!");
         }

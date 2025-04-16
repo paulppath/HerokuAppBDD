@@ -10,3 +10,4 @@
   @US0202
   Scenario: Validation of displayed date after clicking a date on the calendar
     When user click date "19" in the calendar
+    Then Verify that the date is displayed as "4/19/2025" date
